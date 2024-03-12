@@ -5,15 +5,16 @@ import EventList from "../../components/events/event-list";
 import ResultsTitle from "../../components/events/results-title";
 import Button from "../../components/ui/button";
 import ErrorAlert from "../../components/ui/error-alert";
+import Head from "next/head";
 
 function FilteredEventsPage(props) {
-  if (!props.events) {
-    return <p className="center">Loading...</p>;
-  }
-
   if (props.hasError) {
     return (
       <Fragment>
+        <Head>
+          <title>Filtered Events</title>
+          <meta name="description" content="Filtered events" />
+        </Head>
         <ErrorAlert>
           <p>Invalid filter. Please adjust your values!</p>
         </ErrorAlert>
